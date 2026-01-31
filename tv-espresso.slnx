@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="tv-espresso-admin/tv-espresso-admin.csproj" Id="bc3735b7-044a-40af-b07c-adf1bd234cbe" />
   <Project Path="tv-espresso/tv-espresso.csproj" />
 </Solution>

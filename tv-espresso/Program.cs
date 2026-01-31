@@ -1,12 +1,28 @@
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.FileProviders;
+using tv_espresso.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("VideoCors", policy =>
+    {
+        policy
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 
-builder.Services.AddControllers();
+// Add services to the container.
+builder.Services.AddSingleton<VideoService>();
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null); ;
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.UseCors("VideoCors");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -14,8 +30,25 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseAuthorization();
+var provider = new FileExtensionContentTypeProvider();
+provider.Mappings[".mp4"] = "video/mp4";
+provider.Mappings[".mkv"] = "video/x-matroska";
+
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Append("Accept-Ranges", "bytes");
+    await next();
+});
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(app.Configuration["TvEspressoRoot"]!)),
+    ContentTypeProvider = provider,
+    ServeUnknownFileTypes = true
+});
 
 app.MapControllers();
+app.UseAuthorization();
 
 app.Run();
