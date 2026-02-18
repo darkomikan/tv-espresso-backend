@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using tv_espresso.Models;
 using tv_espresso.Services;
 
@@ -20,12 +19,12 @@ namespace tv_espresso.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetDuration(string uri)
+        public async Task<IActionResult> GetDuration(string uri)
         {
-            TimeSpan? duration = videoService.GetDuration(uri);
+            string? duration = await videoService.GetDurationAsync(uri);
             if (duration is null)
                 return NotFound();
-            return Ok($"{duration:g}");
+            return Ok(duration);
         }
 
         [HttpGet("{id:length(24)}")]

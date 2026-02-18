@@ -5,3 +5,8 @@
 GET http://192.168.1.28:7080/api/video/StreamDownscaledVideo?uri=escape.mkv
 
 ###
+
+@uri=string
+GET http://192.168.1.28:7080/api/video/GetDuration?uri=cmar.mp4
+
+###

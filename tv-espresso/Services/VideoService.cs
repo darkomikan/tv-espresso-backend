@@ -4,7 +4,6 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using tv_espresso.Models;
 
 namespace tv_espresso.Services
@@ -116,16 +115,33 @@ namespace tv_espresso.Services
 
         public async Task DeleteAsync(string id) => await videosCollection.DeleteOneAsync(x => x.Id == id);
 
-        public TimeSpan? GetDuration(string uri)
+        public async Task<string?> GetDurationAsync(string uri)
         {
             string filePath = Path.Combine(rootPath, uri);
             if (!File.Exists(filePath))
                 return null;
             try
             {
-                using var tfile = TagLib.File.Create(filePath);
-                TimeSpan duration = tfile.Properties.Duration;
-                return duration;
+                var psi = new ProcessStartInfo
+                {
+                    FileName = "ffprobe",
+                    Arguments =
+                    $"-i \"{filePath}\" -show_entries format=duration -v quiet -of csv=\"p=0\" -sexagesimal",
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+                using var process = Process.Start(psi)!;
+                string output = await process.StandardOutput.ReadToEndAsync();
+                await process.WaitForExitAsync();
+
+                if (output.Contains('.'))
+                    return output[..output.IndexOf('.')];
+                else if (output.Contains(','))
+                    return output[..output.IndexOf(',')];
+                else
+                    return output;
             }
             catch (Exception)
             {

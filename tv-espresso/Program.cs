@@ -33,6 +33,9 @@ if (app.Environment.IsDevelopment())
 var provider = new FileExtensionContentTypeProvider();
 provider.Mappings[".mp4"] = "video/mp4";
 provider.Mappings[".mkv"] = "video/x-matroska";
+provider.Mappings[".jpg"] = "image/jpeg";
+provider.Mappings[".jpeg"] = "image/jpeg";
+provider.Mappings[".png"] = "image/png";
 
 app.Use(async (context, next) =>
 {
