@@ -118,6 +118,7 @@ namespace tv_espresso.Services
         public async Task<string?> GetDurationAsync(string uri)
         {
             string filePath = Path.Combine(rootPath, uri);
+            filePath = filePath.Replace('\\', Path.DirectorySeparatorChar);
             if (!File.Exists(filePath))
                 return null;
             try
@@ -225,6 +226,7 @@ namespace tv_espresso.Services
             {
                 bool extChanged = false;
                 videoPath = Path.Combine(rootPath, videoPath);
+                videoPath = videoPath.Replace('\\', Path.DirectorySeparatorChar);
                 var ext = Path.GetExtension(videoPath).ToLowerInvariant();
                 if (!File.Exists(videoPath))
                     return false;
@@ -238,6 +240,7 @@ namespace tv_espresso.Services
                 if (subtitlesCount == 0 && srtPathEn != "")
                 {
                     srtPathEn = Path.Combine(rootPath, srtPathEn);
+                    srtPathEn = srtPathEn.Replace('\\', Path.DirectorySeparatorChar);
                     await RunMkvmergeAsync(
                         "--compression -1:none " +
                         $"-o \"{tempVideo}\" " +
@@ -263,6 +266,7 @@ namespace tv_espresso.Services
                 if (srtPathSr != "")
                 {
                     srtPathSr = Path.Combine(rootPath, srtPathSr);
+                    srtPathSr = srtPathSr.Replace('\\', Path.DirectorySeparatorChar);
                     await RunMkvmergeAsync(
                         "--compression -1:none " +
                         $"-o \"{tempVideo}\" " +
