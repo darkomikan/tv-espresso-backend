@@ -43,6 +43,13 @@ app.Use(async (context, next) =>
     await next();
 });
 
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path.HasValue)
+        context.Request.Path = new PathString(context.Request.Path.Value.Replace('\\', Path.DirectorySeparatorChar));
+    await next();
+});
+
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
