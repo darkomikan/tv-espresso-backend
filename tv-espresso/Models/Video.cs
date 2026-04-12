@@ -27,5 +27,10 @@ namespace tv_espresso.Models
         public string[] Genres { get; set; } = [];
         [BsonIgnore]
         public List<List<Video>> Series { get; set; } = [];
+
+        public override string ToString()
+        {
+            return Title + (Season > 0 ? " S" + Season + " E" + Episode : "");
+        }
     }
 }

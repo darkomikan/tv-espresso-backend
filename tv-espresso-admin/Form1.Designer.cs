@@ -73,9 +73,27 @@
             subtitleEnTextBox = new TextBox();
             selectSubtitleEnButton = new Button();
             resTextArea = new RichTextBox();
+            remove4kUriButton = new Button();
+            removeCoverUriButton = new Button();
+            removeThemeUriButton = new Button();
+            removeSubtitleSrButton = new Button();
+            removeSubtitleEnButton = new Button();
+            selectShowButton = new Button();
+            videoList = new ListBox();
+            groupBox1 = new GroupBox();
+            showSubtitlesEnCheckBox = new CheckBox();
+            titleStartsCheckBox = new CheckBox();
+            label20 = new Label();
+            episodeRegexTextBox = new TextBox();
+            label19 = new Label();
+            startsWithTextBox = new TextBox();
+            removeDotsCheckBox = new CheckBox();
+            label18 = new Label();
+            endsWithTextBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)yearNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)seasonNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)episodeNumeric).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // selectVideoButton
@@ -94,7 +112,7 @@
             uriTextBox.Location = new Point(212, 57);
             uriTextBox.Name = "uriTextBox";
             uriTextBox.ReadOnly = true;
-            uriTextBox.Size = new Size(576, 31);
+            uriTextBox.Size = new Size(693, 31);
             uriTextBox.TabIndex = 1;
             // 
             // label1
@@ -120,7 +138,7 @@
             rootTextBox.Location = new Point(212, 12);
             rootTextBox.Name = "rootTextBox";
             rootTextBox.ReadOnly = true;
-            rootTextBox.Size = new Size(576, 31);
+            rootTextBox.Size = new Size(693, 31);
             rootTextBox.TabIndex = 4;
             // 
             // selectRootButton
@@ -146,14 +164,14 @@
             // 
             titleTextBox.Location = new Point(212, 94);
             titleTextBox.Name = "titleTextBox";
-            titleTextBox.Size = new Size(576, 31);
+            titleTextBox.Size = new Size(693, 31);
             titleTextBox.TabIndex = 7;
             // 
             // translatedTitleTextBox
             // 
             translatedTitleTextBox.Location = new Point(212, 131);
             translatedTitleTextBox.Name = "translatedTitleTextBox";
-            translatedTitleTextBox.Size = new Size(576, 31);
+            translatedTitleTextBox.Size = new Size(693, 31);
             translatedTitleTextBox.TabIndex = 9;
             // 
             // label4
@@ -234,7 +252,7 @@
             // 
             translatedEpisodeTitleTextBox.Location = new Point(212, 241);
             translatedEpisodeTitleTextBox.Name = "translatedEpisodeTitleTextBox";
-            translatedEpisodeTitleTextBox.Size = new Size(576, 31);
+            translatedEpisodeTitleTextBox.Size = new Size(693, 31);
             translatedEpisodeTitleTextBox.TabIndex = 21;
             // 
             // label8
@@ -250,7 +268,7 @@
             // 
             episodeTitleTextBox.Location = new Point(212, 204);
             episodeTitleTextBox.Name = "episodeTitleTextBox";
-            episodeTitleTextBox.Size = new Size(576, 31);
+            episodeTitleTextBox.Size = new Size(693, 31);
             episodeTitleTextBox.TabIndex = 19;
             // 
             // label9
@@ -266,7 +284,7 @@
             // 
             directorTextBox.Location = new Point(212, 278);
             directorTextBox.Name = "directorTextBox";
-            directorTextBox.Size = new Size(576, 31);
+            directorTextBox.Size = new Size(693, 31);
             directorTextBox.TabIndex = 23;
             // 
             // label10
@@ -282,7 +300,7 @@
             // 
             actorsTextBox.Location = new Point(212, 315);
             actorsTextBox.Name = "actorsTextBox";
-            actorsTextBox.Size = new Size(576, 31);
+            actorsTextBox.Size = new Size(693, 31);
             actorsTextBox.TabIndex = 25;
             // 
             // label11
@@ -298,7 +316,7 @@
             // 
             genresTextBox.Location = new Point(212, 352);
             genresTextBox.Name = "genresTextBox";
-            genresTextBox.Size = new Size(576, 31);
+            genresTextBox.Size = new Size(693, 31);
             genresTextBox.TabIndex = 27;
             // 
             // label12
@@ -324,7 +342,7 @@
             uri4kTextBox.Location = new Point(212, 389);
             uri4kTextBox.Name = "uri4kTextBox";
             uri4kTextBox.ReadOnly = true;
-            uri4kTextBox.Size = new Size(576, 31);
+            uri4kTextBox.Size = new Size(645, 31);
             uri4kTextBox.TabIndex = 29;
             // 
             // select4kUriButton
@@ -352,7 +370,7 @@
             coverUriTextBox.Location = new Point(212, 426);
             coverUriTextBox.Name = "coverUriTextBox";
             coverUriTextBox.ReadOnly = true;
-            coverUriTextBox.Size = new Size(576, 31);
+            coverUriTextBox.Size = new Size(645, 31);
             coverUriTextBox.TabIndex = 32;
             // 
             // selectCoverUriButton
@@ -380,7 +398,7 @@
             themeUriTextBox.Location = new Point(212, 463);
             themeUriTextBox.Name = "themeUriTextBox";
             themeUriTextBox.ReadOnly = true;
-            themeUriTextBox.Size = new Size(576, 31);
+            themeUriTextBox.Size = new Size(645, 31);
             themeUriTextBox.TabIndex = 35;
             // 
             // selectThemeUriButton
@@ -408,7 +426,7 @@
             subtitleSrTextBox.Location = new Point(212, 500);
             subtitleSrTextBox.Name = "subtitleSrTextBox";
             subtitleSrTextBox.ReadOnly = true;
-            subtitleSrTextBox.Size = new Size(576, 31);
+            subtitleSrTextBox.Size = new Size(645, 31);
             subtitleSrTextBox.TabIndex = 38;
             // 
             // selectSubtitleSrButton
@@ -425,9 +443,9 @@
             // createButton
             // 
             createButton.Enabled = false;
-            createButton.Location = new Point(676, 574);
+            createButton.Location = new Point(735, 577);
             createButton.Name = "createButton";
-            createButton.Size = new Size(112, 34);
+            createButton.Size = new Size(170, 34);
             createButton.TabIndex = 40;
             createButton.Text = "Create";
             createButton.UseVisualStyleBackColor = true;
@@ -447,7 +465,7 @@
             subtitleEnTextBox.Location = new Point(212, 537);
             subtitleEnTextBox.Name = "subtitleEnTextBox";
             subtitleEnTextBox.ReadOnly = true;
-            subtitleEnTextBox.Size = new Size(576, 31);
+            subtitleEnTextBox.Size = new Size(645, 31);
             subtitleEnTextBox.TabIndex = 42;
             // 
             // selectSubtitleEnButton
@@ -463,19 +481,212 @@
             // 
             // resTextArea
             // 
-            resTextArea.Enabled = false;
-            resTextArea.Location = new Point(794, 12);
+            resTextArea.Location = new Point(12, 622);
             resTextArea.Name = "resTextArea";
             resTextArea.ReadOnly = true;
-            resTextArea.Size = new Size(360, 597);
+            resTextArea.Size = new Size(893, 445);
             resTextArea.TabIndex = 44;
             resTextArea.Text = "";
+            // 
+            // remove4kUriButton
+            // 
+            remove4kUriButton.BackColor = Color.OrangeRed;
+            remove4kUriButton.Enabled = false;
+            remove4kUriButton.ForeColor = SystemColors.ButtonFace;
+            remove4kUriButton.Location = new Point(863, 389);
+            remove4kUriButton.Name = "remove4kUriButton";
+            remove4kUriButton.Size = new Size(42, 34);
+            remove4kUriButton.TabIndex = 45;
+            remove4kUriButton.Text = "X";
+            remove4kUriButton.UseVisualStyleBackColor = false;
+            remove4kUriButton.Click += remove4kUriButton_Click;
+            // 
+            // removeCoverUriButton
+            // 
+            removeCoverUriButton.BackColor = Color.OrangeRed;
+            removeCoverUriButton.Enabled = false;
+            removeCoverUriButton.ForeColor = SystemColors.ButtonFace;
+            removeCoverUriButton.Location = new Point(863, 426);
+            removeCoverUriButton.Name = "removeCoverUriButton";
+            removeCoverUriButton.Size = new Size(42, 34);
+            removeCoverUriButton.TabIndex = 46;
+            removeCoverUriButton.Text = "X";
+            removeCoverUriButton.UseVisualStyleBackColor = false;
+            removeCoverUriButton.Click += removeCoverUriButton_Click;
+            // 
+            // removeThemeUriButton
+            // 
+            removeThemeUriButton.BackColor = Color.OrangeRed;
+            removeThemeUriButton.Enabled = false;
+            removeThemeUriButton.ForeColor = SystemColors.ButtonFace;
+            removeThemeUriButton.Location = new Point(863, 463);
+            removeThemeUriButton.Name = "removeThemeUriButton";
+            removeThemeUriButton.Size = new Size(42, 34);
+            removeThemeUriButton.TabIndex = 47;
+            removeThemeUriButton.Text = "X";
+            removeThemeUriButton.UseVisualStyleBackColor = false;
+            removeThemeUriButton.Click += removeThemeUriButton_Click;
+            // 
+            // removeSubtitleSrButton
+            // 
+            removeSubtitleSrButton.BackColor = Color.OrangeRed;
+            removeSubtitleSrButton.Enabled = false;
+            removeSubtitleSrButton.ForeColor = SystemColors.ButtonFace;
+            removeSubtitleSrButton.Location = new Point(863, 500);
+            removeSubtitleSrButton.Name = "removeSubtitleSrButton";
+            removeSubtitleSrButton.Size = new Size(42, 34);
+            removeSubtitleSrButton.TabIndex = 48;
+            removeSubtitleSrButton.Text = "X";
+            removeSubtitleSrButton.UseVisualStyleBackColor = false;
+            removeSubtitleSrButton.Click += removeSubtitleSrButton_Click;
+            // 
+            // removeSubtitleEnButton
+            // 
+            removeSubtitleEnButton.BackColor = Color.OrangeRed;
+            removeSubtitleEnButton.Enabled = false;
+            removeSubtitleEnButton.ForeColor = SystemColors.ButtonFace;
+            removeSubtitleEnButton.Location = new Point(863, 537);
+            removeSubtitleEnButton.Name = "removeSubtitleEnButton";
+            removeSubtitleEnButton.Size = new Size(42, 34);
+            removeSubtitleEnButton.TabIndex = 49;
+            removeSubtitleEnButton.Text = "X";
+            removeSubtitleEnButton.UseVisualStyleBackColor = false;
+            removeSubtitleEnButton.Click += removeSubtitleEnButton_Click;
+            // 
+            // selectShowButton
+            // 
+            selectShowButton.Enabled = false;
+            selectShowButton.Location = new Point(12, 94);
+            selectShowButton.Name = "selectShowButton";
+            selectShowButton.Size = new Size(134, 34);
+            selectShowButton.TabIndex = 50;
+            selectShowButton.Text = "Select Show";
+            selectShowButton.UseVisualStyleBackColor = true;
+            selectShowButton.Click += selectShowButton_Click;
+            // 
+            // videoList
+            // 
+            videoList.FormattingEnabled = true;
+            videoList.Location = new Point(911, 312);
+            videoList.Name = "videoList";
+            videoList.Size = new Size(443, 754);
+            videoList.TabIndex = 51;
+            videoList.SelectedIndexChanged += videoList_SelectedIndexChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(showSubtitlesEnCheckBox);
+            groupBox1.Controls.Add(titleStartsCheckBox);
+            groupBox1.Controls.Add(label20);
+            groupBox1.Controls.Add(episodeRegexTextBox);
+            groupBox1.Controls.Add(label19);
+            groupBox1.Controls.Add(startsWithTextBox);
+            groupBox1.Controls.Add(removeDotsCheckBox);
+            groupBox1.Controls.Add(label18);
+            groupBox1.Controls.Add(endsWithTextBox);
+            groupBox1.Location = new Point(911, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(442, 294);
+            groupBox1.TabIndex = 52;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Episode Title Extractor";
+            // 
+            // showSubtitlesEnCheckBox
+            // 
+            showSubtitlesEnCheckBox.AutoSize = true;
+            showSubtitlesEnCheckBox.Location = new Point(104, 259);
+            showSubtitlesEnCheckBox.Name = "showSubtitlesEnCheckBox";
+            showSubtitlesEnCheckBox.Size = new Size(294, 29);
+            showSubtitlesEnCheckBox.TabIndex = 23;
+            showSubtitlesEnCheckBox.Text = "Show subtitles are EN by default";
+            showSubtitlesEnCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // titleStartsCheckBox
+            // 
+            titleStartsCheckBox.AutoSize = true;
+            titleStartsCheckBox.Checked = true;
+            titleStartsCheckBox.CheckState = CheckState.Checked;
+            titleStartsCheckBox.Location = new Point(104, 82);
+            titleStartsCheckBox.Name = "titleStartsCheckBox";
+            titleStartsCheckBox.Size = new Size(294, 29);
+            titleStartsCheckBox.TabIndex = 22;
+            titleStartsCheckBox.Text = "Title starts after episode number";
+            titleStartsCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(6, 45);
+            label20.Name = "label20";
+            label20.Size = new Size(194, 25);
+            label20.TabIndex = 21;
+            label20.Text = "Episode number regex:";
+            // 
+            // episodeRegexTextBox
+            // 
+            episodeRegexTextBox.Location = new Point(206, 42);
+            episodeRegexTextBox.Name = "episodeRegexTextBox";
+            episodeRegexTextBox.Size = new Size(230, 31);
+            episodeRegexTextBox.TabIndex = 20;
+            episodeRegexTextBox.Text = "E\\d{2}";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(6, 122);
+            label19.Name = "label19";
+            label19.Size = new Size(98, 25);
+            label19.TabIndex = 19;
+            label19.Text = "Starts with:";
+            // 
+            // startsWithTextBox
+            // 
+            startsWithTextBox.Location = new Point(110, 119);
+            startsWithTextBox.Name = "startsWithTextBox";
+            startsWithTextBox.Size = new Size(326, 31);
+            startsWithTextBox.TabIndex = 18;
+            // 
+            // removeDotsCheckBox
+            // 
+            removeDotsCheckBox.AutoSize = true;
+            removeDotsCheckBox.Checked = true;
+            removeDotsCheckBox.CheckState = CheckState.Checked;
+            removeDotsCheckBox.Location = new Point(104, 198);
+            removeDotsCheckBox.Name = "removeDotsCheckBox";
+            removeDotsCheckBox.Size = new Size(143, 29);
+            removeDotsCheckBox.TabIndex = 17;
+            removeDotsCheckBox.Text = "Remove dots";
+            removeDotsCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(12, 162);
+            label18.Name = "label18";
+            label18.Size = new Size(92, 25);
+            label18.TabIndex = 9;
+            label18.Text = "Ends with:";
+            // 
+            // endsWithTextBox
+            // 
+            endsWithTextBox.Location = new Point(110, 159);
+            endsWithTextBox.Name = "endsWithTextBox";
+            endsWithTextBox.Size = new Size(326, 31);
+            endsWithTextBox.TabIndex = 8;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1166, 621);
+            ClientSize = new Size(1365, 1079);
+            Controls.Add(groupBox1);
+            Controls.Add(videoList);
+            Controls.Add(selectShowButton);
+            Controls.Add(removeSubtitleEnButton);
+            Controls.Add(removeSubtitleSrButton);
+            Controls.Add(removeThemeUriButton);
+            Controls.Add(removeCoverUriButton);
+            Controls.Add(remove4kUriButton);
             Controls.Add(resTextArea);
             Controls.Add(label17);
             Controls.Add(subtitleEnTextBox);
@@ -526,6 +737,8 @@
             ((System.ComponentModel.ISupportInitialize)yearNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)seasonNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)episodeNumeric).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -576,5 +789,22 @@
         private TextBox subtitleEnTextBox;
         private Button selectSubtitleEnButton;
         private RichTextBox resTextArea;
+        private Button remove4kUriButton;
+        private Button removeCoverUriButton;
+        private Button removeThemeUriButton;
+        private Button removeSubtitleSrButton;
+        private Button removeSubtitleEnButton;
+        private Button selectShowButton;
+        private ListBox videoList;
+        private GroupBox groupBox1;
+        private CheckBox removeDotsCheckBox;
+        private Label label18;
+        private TextBox endsWithTextBox;
+        private Label label20;
+        private TextBox episodeRegexTextBox;
+        private Label label19;
+        private TextBox startsWithTextBox;
+        private CheckBox titleStartsCheckBox;
+        private CheckBox showSubtitlesEnCheckBox;
     }
 }
