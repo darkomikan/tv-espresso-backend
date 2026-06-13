@@ -27,6 +27,7 @@ namespace tv_espresso_admin
             {
                 videosInDb = (await http.GetFromJsonAsync<List<Video>>("http://192.168.1.100:7080/api/video/getall"))!;
                 videosInDb ??= new List<Video>();
+                previousTitleTextBox.AutoCompleteCustomSource = [.. videosInDb.Select(v => v.Title)];
             }
             catch (HttpRequestException ex)
             {
@@ -88,6 +89,8 @@ namespace tv_espresso_admin
                 uri4kTextBox.Text = "";
                 subtitleEnTextBox.Text = "";
                 subtitleSrTextBox.Text = "";
+                skipSegmentsTextBox.Text = "";
+                previousTitleTextBox.Text = "";
                 if (sMatch.Success)
                 {
                     seasonNumeric.Value = int.Parse(sMatch.Value[1..].TrimStart('0'));
@@ -160,6 +163,8 @@ namespace tv_espresso_admin
                 uri4kTextBox.Text = "";
                 subtitleEnTextBox.Text = "";
                 subtitleSrTextBox.Text = "";
+                skipSegmentsTextBox.Text = "";
+                previousTitleTextBox.Text = "";
 
                 titleTextBox.Text = showBrowserDialog.SelectedPath;
                 if (titleTextBox.Text.Contains(Path.DirectorySeparatorChar))
@@ -339,6 +344,9 @@ namespace tv_espresso_admin
             video.Director = directorTextBox.Text.Trim();
             video.Actors = actorsTextBox.Text.Trim() != "" ? actorsTextBox.Text.Split(',', options: StringSplitOptions.TrimEntries) : [];
             video.Genres = genresTextBox.Text.Split(',', options: StringSplitOptions.TrimEntries);
+            video.SkipSegments = skipSegmentsTextBox.Text.Trim() != "" ? skipSegmentsTextBox.Text.Split(',', options: StringSplitOptions.TrimEntries) : [];
+            video.PreviousTitle = previousTitleTextBox.Text.Trim();
+            video.Priority = (int)priorityNumeric.Value;
 
             resTextArea.Text = "";
             string jsonPayload = JsonSerializer.Serialize(video);

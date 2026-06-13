@@ -22,9 +22,12 @@ namespace tv_espresso.Models
         public string? SubtitleEngUri { get; set; }
         public string? SubtitleSrbUri { get; set; }
         public bool VideoFhd { get; set; }
+        public string? PreviousTitle { get; set; }
         public string? Director { get; set; }
         public string[] Actors { get; set; } = [];
         public string[] Genres { get; set; } = [];
+        public string[] SkipSegments { get; set; } = [];
+        public int Priority { get; set; }
         [BsonIgnore]
         public List<List<Video>> Series { get; set; } = [];
 

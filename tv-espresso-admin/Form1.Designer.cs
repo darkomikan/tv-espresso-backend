@@ -90,10 +90,17 @@
             removeDotsCheckBox = new CheckBox();
             label18 = new Label();
             endsWithTextBox = new TextBox();
+            skipSegmentsTextBox = new TextBox();
+            label21 = new Label();
+            previousTitleTextBox = new TextBox();
+            label22 = new Label();
+            priorityNumeric = new NumericUpDown();
+            label23 = new Label();
             ((System.ComponentModel.ISupportInitialize)yearNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)seasonNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)episodeNumeric).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)priorityNumeric).BeginInit();
             SuspendLayout();
             // 
             // selectVideoButton
@@ -331,7 +338,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(137, 392);
+            label13.Location = new Point(137, 466);
             label13.Name = "label13";
             label13.Size = new Size(69, 25);
             label13.TabIndex = 30;
@@ -339,7 +346,7 @@
             // 
             // uri4kTextBox
             // 
-            uri4kTextBox.Location = new Point(212, 389);
+            uri4kTextBox.Location = new Point(212, 463);
             uri4kTextBox.Name = "uri4kTextBox";
             uri4kTextBox.ReadOnly = true;
             uri4kTextBox.Size = new Size(645, 31);
@@ -348,7 +355,7 @@
             // select4kUriButton
             // 
             select4kUriButton.Enabled = false;
-            select4kUriButton.Location = new Point(12, 389);
+            select4kUriButton.Location = new Point(12, 463);
             select4kUriButton.Name = "select4kUriButton";
             select4kUriButton.Size = new Size(80, 34);
             select4kUriButton.TabIndex = 28;
@@ -359,7 +366,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(111, 429);
+            label14.Location = new Point(111, 503);
             label14.Name = "label14";
             label14.Size = new Size(95, 25);
             label14.TabIndex = 33;
@@ -367,7 +374,7 @@
             // 
             // coverUriTextBox
             // 
-            coverUriTextBox.Location = new Point(212, 426);
+            coverUriTextBox.Location = new Point(212, 500);
             coverUriTextBox.Name = "coverUriTextBox";
             coverUriTextBox.ReadOnly = true;
             coverUriTextBox.Size = new Size(645, 31);
@@ -376,7 +383,7 @@
             // selectCoverUriButton
             // 
             selectCoverUriButton.Enabled = false;
-            selectCoverUriButton.Location = new Point(12, 426);
+            selectCoverUriButton.Location = new Point(12, 500);
             selectCoverUriButton.Name = "selectCoverUriButton";
             selectCoverUriButton.Size = new Size(80, 34);
             selectCoverUriButton.TabIndex = 31;
@@ -387,7 +394,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(104, 466);
+            label15.Location = new Point(104, 540);
             label15.Name = "label15";
             label15.Size = new Size(102, 25);
             label15.TabIndex = 36;
@@ -395,7 +402,7 @@
             // 
             // themeUriTextBox
             // 
-            themeUriTextBox.Location = new Point(212, 463);
+            themeUriTextBox.Location = new Point(212, 537);
             themeUriTextBox.Name = "themeUriTextBox";
             themeUriTextBox.ReadOnly = true;
             themeUriTextBox.Size = new Size(645, 31);
@@ -404,7 +411,7 @@
             // selectThemeUriButton
             // 
             selectThemeUriButton.Enabled = false;
-            selectThemeUriButton.Location = new Point(12, 463);
+            selectThemeUriButton.Location = new Point(12, 537);
             selectThemeUriButton.Name = "selectThemeUriButton";
             selectThemeUriButton.Size = new Size(80, 34);
             selectThemeUriButton.TabIndex = 34;
@@ -415,7 +422,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(104, 503);
+            label16.Location = new Point(104, 577);
             label16.Name = "label16";
             label16.Size = new Size(102, 25);
             label16.TabIndex = 39;
@@ -423,7 +430,7 @@
             // 
             // subtitleSrTextBox
             // 
-            subtitleSrTextBox.Location = new Point(212, 500);
+            subtitleSrTextBox.Location = new Point(212, 574);
             subtitleSrTextBox.Name = "subtitleSrTextBox";
             subtitleSrTextBox.ReadOnly = true;
             subtitleSrTextBox.Size = new Size(645, 31);
@@ -432,7 +439,7 @@
             // selectSubtitleSrButton
             // 
             selectSubtitleSrButton.Enabled = false;
-            selectSubtitleSrButton.Location = new Point(12, 500);
+            selectSubtitleSrButton.Location = new Point(12, 574);
             selectSubtitleSrButton.Name = "selectSubtitleSrButton";
             selectSubtitleSrButton.Size = new Size(80, 34);
             selectSubtitleSrButton.TabIndex = 37;
@@ -443,7 +450,7 @@
             // createButton
             // 
             createButton.Enabled = false;
-            createButton.Location = new Point(735, 577);
+            createButton.Location = new Point(735, 651);
             createButton.Name = "createButton";
             createButton.Size = new Size(170, 34);
             createButton.TabIndex = 40;
@@ -454,7 +461,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(103, 540);
+            label17.Location = new Point(103, 614);
             label17.Name = "label17";
             label17.Size = new Size(103, 25);
             label17.TabIndex = 43;
@@ -462,7 +469,7 @@
             // 
             // subtitleEnTextBox
             // 
-            subtitleEnTextBox.Location = new Point(212, 537);
+            subtitleEnTextBox.Location = new Point(212, 611);
             subtitleEnTextBox.Name = "subtitleEnTextBox";
             subtitleEnTextBox.ReadOnly = true;
             subtitleEnTextBox.Size = new Size(645, 31);
@@ -471,7 +478,7 @@
             // selectSubtitleEnButton
             // 
             selectSubtitleEnButton.Enabled = false;
-            selectSubtitleEnButton.Location = new Point(12, 537);
+            selectSubtitleEnButton.Location = new Point(12, 611);
             selectSubtitleEnButton.Name = "selectSubtitleEnButton";
             selectSubtitleEnButton.Size = new Size(80, 34);
             selectSubtitleEnButton.TabIndex = 41;
@@ -481,10 +488,10 @@
             // 
             // resTextArea
             // 
-            resTextArea.Location = new Point(12, 622);
+            resTextArea.Location = new Point(12, 691);
             resTextArea.Name = "resTextArea";
             resTextArea.ReadOnly = true;
-            resTextArea.Size = new Size(893, 445);
+            resTextArea.Size = new Size(893, 376);
             resTextArea.TabIndex = 44;
             resTextArea.Text = "";
             // 
@@ -493,7 +500,7 @@
             remove4kUriButton.BackColor = Color.OrangeRed;
             remove4kUriButton.Enabled = false;
             remove4kUriButton.ForeColor = SystemColors.ButtonFace;
-            remove4kUriButton.Location = new Point(863, 389);
+            remove4kUriButton.Location = new Point(863, 463);
             remove4kUriButton.Name = "remove4kUriButton";
             remove4kUriButton.Size = new Size(42, 34);
             remove4kUriButton.TabIndex = 45;
@@ -506,7 +513,7 @@
             removeCoverUriButton.BackColor = Color.OrangeRed;
             removeCoverUriButton.Enabled = false;
             removeCoverUriButton.ForeColor = SystemColors.ButtonFace;
-            removeCoverUriButton.Location = new Point(863, 426);
+            removeCoverUriButton.Location = new Point(863, 500);
             removeCoverUriButton.Name = "removeCoverUriButton";
             removeCoverUriButton.Size = new Size(42, 34);
             removeCoverUriButton.TabIndex = 46;
@@ -519,7 +526,7 @@
             removeThemeUriButton.BackColor = Color.OrangeRed;
             removeThemeUriButton.Enabled = false;
             removeThemeUriButton.ForeColor = SystemColors.ButtonFace;
-            removeThemeUriButton.Location = new Point(863, 463);
+            removeThemeUriButton.Location = new Point(863, 537);
             removeThemeUriButton.Name = "removeThemeUriButton";
             removeThemeUriButton.Size = new Size(42, 34);
             removeThemeUriButton.TabIndex = 47;
@@ -532,7 +539,7 @@
             removeSubtitleSrButton.BackColor = Color.OrangeRed;
             removeSubtitleSrButton.Enabled = false;
             removeSubtitleSrButton.ForeColor = SystemColors.ButtonFace;
-            removeSubtitleSrButton.Location = new Point(863, 500);
+            removeSubtitleSrButton.Location = new Point(863, 574);
             removeSubtitleSrButton.Name = "removeSubtitleSrButton";
             removeSubtitleSrButton.Size = new Size(42, 34);
             removeSubtitleSrButton.TabIndex = 48;
@@ -545,7 +552,7 @@
             removeSubtitleEnButton.BackColor = Color.OrangeRed;
             removeSubtitleEnButton.Enabled = false;
             removeSubtitleEnButton.ForeColor = SystemColors.ButtonFace;
-            removeSubtitleEnButton.Location = new Point(863, 537);
+            removeSubtitleEnButton.Location = new Point(863, 611);
             removeSubtitleEnButton.Name = "removeSubtitleEnButton";
             removeSubtitleEnButton.Size = new Size(42, 34);
             removeSubtitleEnButton.TabIndex = 49;
@@ -674,11 +681,68 @@
             endsWithTextBox.Size = new Size(326, 31);
             endsWithTextBox.TabIndex = 8;
             // 
+            // skipSegmentsTextBox
+            // 
+            skipSegmentsTextBox.Location = new Point(316, 389);
+            skipSegmentsTextBox.Name = "skipSegmentsTextBox";
+            skipSegmentsTextBox.Size = new Size(589, 31);
+            skipSegmentsTextBox.TabIndex = 54;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(6, 392);
+            label21.Name = "label21";
+            label21.Size = new Size(304, 25);
+            label21.TabIndex = 53;
+            label21.Text = "Skip Segments (h:mm:ss-h:mm:ss,...):";
+            // 
+            // previousTitleTextBox
+            // 
+            previousTitleTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            previousTitleTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            previousTitleTextBox.Location = new Point(212, 426);
+            previousTitleTextBox.Name = "previousTitleTextBox";
+            previousTitleTextBox.Size = new Size(693, 31);
+            previousTitleTextBox.TabIndex = 56;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(54, 429);
+            label22.Name = "label22";
+            label22.Size = new Size(152, 25);
+            label22.TabIndex = 55;
+            label22.Text = "Comes After Title:";
+            // 
+            // priorityNumeric
+            // 
+            priorityNumeric.Location = new Point(836, 168);
+            priorityNumeric.Maximum = new decimal(new int[] { 2, 0, 0, 0 });
+            priorityNumeric.Name = "priorityNumeric";
+            priorityNumeric.Size = new Size(69, 31);
+            priorityNumeric.TabIndex = 57;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(727, 170);
+            label23.Name = "label23";
+            label23.Size = new Size(103, 25);
+            label23.TabIndex = 58;
+            label23.Text = "List Priority:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1365, 1079);
+            Controls.Add(label23);
+            Controls.Add(priorityNumeric);
+            Controls.Add(previousTitleTextBox);
+            Controls.Add(label22);
+            Controls.Add(skipSegmentsTextBox);
+            Controls.Add(label21);
             Controls.Add(groupBox1);
             Controls.Add(videoList);
             Controls.Add(selectShowButton);
@@ -739,6 +803,7 @@
             ((System.ComponentModel.ISupportInitialize)episodeNumeric).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)priorityNumeric).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -806,5 +871,11 @@
         private TextBox startsWithTextBox;
         private CheckBox titleStartsCheckBox;
         private CheckBox showSubtitlesEnCheckBox;
+        private TextBox skipSegmentsTextBox;
+        private Label label21;
+        private TextBox previousTitleTextBox;
+        private Label label22;
+        private NumericUpDown priorityNumeric;
+        private Label label23;
     }
 }

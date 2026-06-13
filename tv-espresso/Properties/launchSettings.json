@@ -6,7 +6,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://192.168.1.28:7080"
+      "applicationUrl": "http://0.0.0.0:7080"
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",

@@ -25,17 +25,20 @@ namespace tv_espresso.Services
         private static List<Video> OrderFilmsAndSeries(List<Video> videos, bool skipVeselja = true)
         {
             int i;
-            List<Video> ordered = new List<Video>();
+            List<Video>[] ordered = new List<Video>[3];
+            ordered[0] = new List<Video>();
+            ordered[1] = new List<Video>();
+            ordered[2] = new List<Video>();
             foreach (var video in videos)
             {
                 if (skipVeselja && video.Genres.Any(g => g.Equals("veselja", StringComparison.CurrentCultureIgnoreCase)))
                     continue;
                 if (video.Episode == 0)
-                    ordered.Add(video);
+                    ordered[video.Priority].Add(video);
                 else
                 {
                     Video? theSeries = null;
-                    if ((theSeries = ordered.Find(v => v.Title == video.Title && v.Director == video.Director && v.Actors.Length == video.Actors.Length)) == null)
+                    if ((theSeries = ordered[video.Priority].Find(v => v.Title == video.Title && v.Director == video.Director && v.Actors.Length == video.Actors.Length)) == null)
                     {
                         theSeries = new Video
                         {
@@ -59,7 +62,7 @@ namespace tv_espresso.Services
                             Uri4k = "",
                             Series = []
                         };
-                        ordered.Add(theSeries);
+                        ordered[video.Priority].Add(theSeries);
                     }
                     Video dummy = new Video { Id = "", Title = video.Title, Uri = "" };
                     for (i = theSeries.Series.Count; i < video.Season; ++i)
@@ -67,18 +70,25 @@ namespace tv_espresso.Services
                     for (i = theSeries.Series[video.Season - 1].Count; i < video.Episode; ++i)
                         theSeries.Series[video.Season - 1].Add(dummy);
                     theSeries.Series[video.Season - 1][video.Episode - 1] = video;
+                    if (video.PreviousTitle != null && video.PreviousTitle != "")
+                        theSeries.PreviousTitle = video.PreviousTitle;
                 }
             }
-            foreach (var video in ordered)
+            for (i = 0; i < 3; ++i)
             {
-                if (video.Uri == "")
+                foreach (var video in ordered[i])
                 {
-                    video.Year = video.Series[0][0].Year;
-                    video.CoverUri = video.Series[0][0].CoverUri;
-                    video.ThemeUri = video.Series[0][0].ThemeUri;
+                    if (video.Uri == "")
+                    {
+                        video.Year = video.Series[0][0].Year;
+                        video.CoverUri = video.Series[0][0].CoverUri;
+                        video.ThemeUri = video.Series[0][0].ThemeUri;
+                    }
                 }
             }
-            return ordered;
+            ordered[2].AddRange(ordered[1]);
+            ordered[2].AddRange(ordered[0]);
+            return ordered[2];
         }
 
         public async Task<List<Video>> GetAsync() => OrderFilmsAndSeries(await videosCollection.Find(_ => true).ToListAsync());
