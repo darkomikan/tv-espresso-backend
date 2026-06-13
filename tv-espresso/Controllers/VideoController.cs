@@ -13,12 +13,6 @@ namespace tv_espresso.Controllers
         public VideoController(VideoService videoService) => this.videoService = videoService;
 
         [HttpGet]
-        public IActionResult Status()
-        {
-            return Ok();
-        }
-
-        [HttpGet]
         public async Task<IActionResult> GetDuration(string uri)
         {
             string? duration = await videoService.GetDurationAsync(uri);

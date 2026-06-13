@@ -16,6 +16,7 @@ builder.Services.AddCors(options =>
 });
 
 // Add services to the container.
+builder.Services.AddScoped<StatusService>();
 builder.Services.AddSingleton<VideoService>();
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null); ;
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
