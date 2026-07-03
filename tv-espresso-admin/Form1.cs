@@ -25,7 +25,8 @@ namespace tv_espresso_admin
         {
             try
             {
-                videosInDb = (await http.GetFromJsonAsync<List<Video>>("http://192.168.1.100:7080/api/video/getall"))!;
+                //videosInDb = (await http.GetFromJsonAsync<List<Video>>("http://home.darkomikan.com:7080/api/video/getall"))!;
+                videosInDb = (await http.GetFromJsonAsync<List<Video>>("http://192.168.10.100:7080/api/video/getall"))!;
                 videosInDb ??= new List<Video>();
                 previousTitleTextBox.AutoCompleteCustomSource = [.. videosInDb.Select(v => v.Title)];
             }
@@ -354,7 +355,8 @@ namespace tv_espresso_admin
 
             try
             {
-                HttpResponseMessage res = await http.PostAsync("http://192.168.1.100:7080/api/video/insert", content);
+                //HttpResponseMessage res = await http.PostAsync("http://home.darkomikan.com:7080/api/video/insert", content);
+                HttpResponseMessage res = await http.PostAsync("http://192.168.10.100:7080/api/video/insert", content);
                 res.EnsureSuccessStatusCode();
                 string responseBody = await res.Content.ReadAsStringAsync();
                 using JsonDocument jsonDocument = JsonDocument.Parse(responseBody);
