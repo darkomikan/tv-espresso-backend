@@ -37,6 +37,7 @@ provider.Mappings[".mkv"] = "video/x-matroska";
 provider.Mappings[".jpg"] = "image/jpeg";
 provider.Mappings[".jpeg"] = "image/jpeg";
 provider.Mappings[".png"] = "image/png";
+provider.Mappings[".apk"] = "application/vnd.android.package-archive";
 
 app.Use(async (context, next) =>
 {
